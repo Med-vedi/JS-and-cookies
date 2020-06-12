@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Cookies in the action</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body class='body'>
+
+	<header></header>
+
+	<main class="container">
+			<h1>Введите данные:</h2>
+			<div class="input-group mb-3" style="width:300px">
+			  <input type="text" class="form-control" placeholder="Укажите Ваш город" aria-label="Ваш город:" aria-describedby="basic-addon2" 
+			   id="city">
+			  <div class="input-group-append">
+			    <button class="btn btn-outline-danger" type="button" onclick="localStorage.removeItem('city');city.value=''">Удалить
+			    </button>
+			  </div>
+			</div>
+
+			<script>
+				city.value = localStorage.getItem('city');
+				city.oninput = () => {
+					localStorage.setItem('city', city.value)
+				};
+			</script>
+			<br />
+			<h2>Предпочтения:</h2>
+			<p>
+				<input type="checkbox" id='1' class="checkbox"> не звонить мне<br />
+				<input type="checkbox" id='2'> я прочитал и согласен с правилами пользования сервисом<br />
+				<input type="checkbox" id='3' class="checkbox"> я не выбираю эту галочку<br />
+				<input type="checkbox" id='4'> я подтверждаю, что свобода в интернете — это возможность выбирать
+				галочки<br />
+				<input type="checkbox" id='5' class="checkbox"> мне больше 12 лет<br />
+				<input type="checkbox" id='6' class="checkbox"> это задание выполнено правильно<br />
+			</p>
+			<button type="button" class="btn btn-outline-info" id='saveCoockiesBtn'>Сохранить</button>
+			<button type="button" class="btn btn-outline-danger" id='deleteCookiesBtn'>Удалить</button>
+
+		</div>
+	</main>
+
+	<script src="./js/jquery-3.4.1.min.js"></script>
+	<script src="./js/script.js"></script>
+
+</body>
+
+</html>
